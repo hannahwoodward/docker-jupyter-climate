@@ -1,6 +1,6 @@
 # Jupyter & Climate Docker Image
 
-[Docker](https://www.docker.com/) image to load [JupyterHub](https://jupyter.org/hub) and [Conda](https://docs.conda.io/en/latest/), with a few [additional packages](environment.yml) useful for climatological data analysis. For an image with some additional packages useful for Earth climate science, see [hannahwoodward/docker-jupyter-climate-earth](github.com/hannahwoodward/docker-jupyter-climate-earth)
+[Docker](https://www.docker.com/) image to load [Jupyter](https://docs.jupyter.org/en/latest/) and [Conda](https://docs.conda.io/en/latest/), with a few [additional packages](environment.yml) useful for climatological data analysis. For an image with some additional packages useful for Earth climate science, see [hannahwoodward/docker-jupyter-climate-earth](github.com/hannahwoodward/docker-jupyter-climate-earth)
 
 
 ## Useful links
