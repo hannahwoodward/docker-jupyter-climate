@@ -1,6 +1,6 @@
 # Jupyter & Climate Docker Image
 
-[Docker](https://www.docker.com/) image to load [Jupyter](https://docs.jupyter.org/en/latest/) and [Conda](https://docs.conda.io/en/latest/), with a few [additional packages](Dockerfile) useful for climatological data analysis. For an image with some additional packages useful for Earth climate science, see [hannahwoodward/docker-jupyter-climate-earth](https://github.com/hannahwoodward/docker-jupyter-climate-earth)
+[Docker](https://www.docker.com/)/[Podman](https://podman.io/) image to load [Jupyter](https://docs.jupyter.org/en/latest/) and [Conda](https://docs.conda.io/en/latest/), with a few [additional packages](Dockerfile) useful for climatological data analysis. For an image with some additional packages useful for Earth climate science, see [hannahwoodward/docker-jupyter-climate-earth](https://github.com/hannahwoodward/docker-jupyter-climate-earth)
 
 
 ## Useful links
@@ -32,6 +32,15 @@ docker run -it --rm -p 8888:8888 -v ${PWD}:/home/jovyan -w /home/jovyan woodward
 # --rm          delete container on exit
 # --volume|-v   mount local directory inside container
 # -w PATH       sets working directory inside container
+```
+
+
+### Podman
+
+* Podman requires additional arguments to enable volume mounting with correct permissions (see [podman run](https://docs.podman.io/en/latest/markdown/podman-run.1.html), nb `:Z|z` is not supported in macOS ):
+
+```
+podman run -it --rm -p 8888:8888 --userns=keep-id -v ${PWD}:/home/jovyan:z -w /home/jovyan woodwardsh/jupyter-climate
 ```
 
 
