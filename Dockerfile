@@ -15,7 +15,8 @@ RUN mamba install --yes \
     nc-time-axis \
     nco \
     netcdf4 \
-    numpy \
+    numba \
+    numpy=1.24.4 \
     pandas \
     pynco \
     scipy \
