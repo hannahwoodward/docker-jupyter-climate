@@ -1,14 +1,16 @@
-FROM jupyter/minimal-notebook:latest
+FROM jupyter/minimal-notebook:python-3.10
 
 ENV CONFIG_NAME "climate"
 
 COPY --chown=${NB_UID}:${NB_GID} generate-config.sh /home/${NB_USER}
 
+# python 3.10 & esmf 8.3.1 required for correct functioning of xesmf
 RUN mamba install --yes \
     aiohttp \
     cartopy \
     cftime \
     dask \
+    esmf=8.3.1 \
     matplotlib \
     nc-time-axis \
     nco \
@@ -20,6 +22,7 @@ RUN mamba install --yes \
     seaborn \
     statsmodels \
     urllib3 \
+    windspharm \
     xarray \
     xesmf && \
     mamba clean --all --yes && \
