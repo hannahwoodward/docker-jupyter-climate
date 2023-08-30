@@ -30,3 +30,6 @@ RUN mamba install --yes \
     xesmf && \
     mamba clean --all --yes && \
     fix-permissions /home/${NB_USER}
+
+# Replace np.int with int in windspharm library
+RUN sed -i "s|np.int|int|" /opt/conda/lib/python3.10/site-packages/windspharm/_common.py
