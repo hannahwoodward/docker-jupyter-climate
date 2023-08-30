@@ -4,7 +4,8 @@ ENV CONFIG_NAME "climate"
 
 COPY --chown=${NB_UID}:${NB_GID} generate-config.sh /home/${NB_USER}
 
-# python 3.10 & esmf 8.3.1 required for correct functioning of xesmf
+# Correct functioning of xesmf requires:
+# python=3.10, esmf=8.3.1, numba, numpy=1.24.4
 RUN mamba install --yes \
     aiohttp \
     cartopy \
@@ -17,6 +18,7 @@ RUN mamba install --yes \
     netcdf4 \
     numba \
     numpy=1.24.4 \
+    openpyxl \
     pandas \
     pynco \
     scipy \
