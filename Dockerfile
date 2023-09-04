@@ -4,11 +4,13 @@ ENV CONFIG_NAME "climate"
 
 COPY --chown=${NB_UID}:${NB_GID} generate-config.sh /home/${NB_USER}
 
-# Correct functioning of xesmf requires:
-# python=3.10, esmf=8.3.1, numba, numpy=1.24.4
+# Specific versions added for some packages for correct functioning of:
+# - cartopy => v0.21.1 (downgrade from v0.22.0) to prevent error:
+#   'GeometryCollection' object is not subscriptable (cartopy calling shapely)
+# - xesmf   => python=3.10, esmf=8.3.1, numba, numpy=1.24.4
 RUN mamba install --yes \
     aiohttp \
-    cartopy \
+    cartopy=0.21.1 \
     cftime \
     dask \
     esmf=8.3.1 \
