@@ -31,6 +31,8 @@ RUN mamba install --yes \
     xarray \
     xesmf && \
     mamba clean --all --yes && \
+    pip install \
+    thermofeel && \
     fix-permissions /home/${NB_USER}
 
 # Replace np.int with int in windspharm library
